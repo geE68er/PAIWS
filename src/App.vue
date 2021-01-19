@@ -2,7 +2,7 @@
   <div id="app">
     <navbar class="navbar" />
     <div id="content">
-      <router-view class="main"/>
+      <router-view />
     </div>
     <footer id="footer">
       Copyright &copy; Gehrlein, Großmann, Kahl, Omerbegovic, Steckelbroeck
@@ -34,7 +34,7 @@ export default {
     height: 2rem;
     background-color: darkgray;
     padding-top: 0.5rem;
-    text-align: right;
+    text-align: center;
   }
 
   #content {
