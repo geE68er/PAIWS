@@ -6,6 +6,9 @@ import Contact from "../components/Contact";
 import Friends from "../components/Friends";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import About from "../components/About";
+import Impressum from "../components/Impressum";
+
 
 Vue.use(Router);
 
@@ -40,6 +43,16 @@ export default new Router({
       path: "/register",
       name: "Register",
       component: Register
+    },
+    {
+      path: "/about",
+      name: "About",
+      component: About
+    },
+    {
+      path: "/impressum",
+      name: "Impressum",
+      component: Impressum
     }
   ]
 });
