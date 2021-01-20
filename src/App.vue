@@ -1,48 +1,27 @@
 <template>
-  <div id="app">
-    <navbar class="navbar" />
-    <div id="content">
+  <v-app>
+    <v-main>
+      <Navbar/>
       <router-view />
-    </div>
-    <footer id="footer">
-      Copyright &copy; Gehrlein, Großmann, Kahl, Omerbegovic, Steckelbroeck
-    </footer>
-  </div>
+      <Footer />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import Navbar from './components/Navbar.vue'
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
 export default {
-  components: { Navbar },
-  name: 'app'
-}
+  name: 'App',
+
+  components: {
+    Navbar,
+    Footer,
+  },
+
+  data: () => ({
+    //
+  }),
+};
 </script>
-
-<style>
-
-  #app {
-    font-family: "Helvetica", sans-serif;
-    position: relative;
-    min-height: 100vh;
-    cursor: default;
-  }
-
-  #footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2rem;
-    background-color: darkgray;
-    padding-top: 0.5rem;
-    text-align: center;
-  }
-
-  #content {
-    padding-bottom: 2rem;
-    max-width: 70%;
-    margin: auto;
-    text-align: left;
-  }
-  
-  
-</style>
