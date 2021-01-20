@@ -1,17 +1,16 @@
 <template>
   <v-app>
     <v-navigation-drawer v-model="sidebar" app>
-      <v-list>
-        <v-list-tile
+      <v-btn
+          text
+          block
+          x-large
           v-for="item in menuItems"
-          :key="item.title"
+          :key="item.path"
           :to="item.path">
-          <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>{{ item.title }}</v-list-tile-content>
-        </v-list-tile>
-      </v-list>
+          <v-icon left dark>{{ item.icon }}</v-icon>
+          {{item.title}}
+        </v-btn>
     </v-navigation-drawer>
 
     <v-toolbar app>
@@ -27,7 +26,9 @@
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
         <v-btn
-          flat
+          depressed
+          text
+          x-large
           v-for="item in menuItems"
           :key="item.path"
           :to="item.path">
@@ -62,8 +63,8 @@ export default {
       appTitle: 'Goethe Social',
       sidebar: false,
       menuItems: [
-        {title: 'Account', path: '/account', icon: 'mdi-account'},
         {title: 'Events', path: '/events', icon: 'mdi-calendar'},
+        {title: 'Account', path: '/account', icon: 'mdi-account'},
         {title: 'Login', path: '/login', icon: 'mdi-login'},
         {title: 'Register', path: '/register', icon: 'mdi-account-plus'},
       ]
