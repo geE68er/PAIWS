@@ -20,7 +20,6 @@ export default new Router({
     {
       path: "/friends",
       name: "Friends",
-      props: true,
       component: Friends
     },
     {
