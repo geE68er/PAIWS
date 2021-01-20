@@ -7,7 +7,6 @@ import Friends from "../components/Friends";
 import Login from "../components/Login";
 import Register from "../components/Register";
 
-
 Vue.use(Router);
 
 export default new Router({
@@ -20,7 +19,6 @@ export default new Router({
     {
       path: "/friends",
       name: "Friends",
-      props: true,
       component: Friends
     },
     {
@@ -44,4 +42,4 @@ export default new Router({
       component: Register
     }
   ]
-})
+});
