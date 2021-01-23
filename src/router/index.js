@@ -3,9 +3,12 @@ import Router from "vue-router";
 import Homepage from "../components/Homepage";
 import Account from "../components/Account";
 import Contact from "../components/Contact";
-import Friends from "../components/Friends";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import About from "../components/About";
+import Impressum from "../components/Impressum";
+import Events from "../components/Events";
+
 
 Vue.use(Router);
 
@@ -15,11 +18,6 @@ export default new Router({
       path: "/",
       name: "Homepage",
       component: Homepage
-    },
-    {
-      path: "/friends",
-      name: "Friends",
-      component: Friends
     },
     {
       path: "/contact",
@@ -40,6 +38,21 @@ export default new Router({
       path: "/register",
       name: "Register",
       component: Register
+    },
+    {
+      path: "/about",
+      name: "About",
+      component: About
+    },
+    {
+      path: "/impressum",
+      name: "Impressum",
+      component: Impressum
+    },
+    {
+      path: "/events",
+      name: "Events",
+      component: Events
     }
   ]
 });
