@@ -2,6 +2,7 @@
   <v-footer
     color="primary lighten-1"
     padless
+    height="55"
   >
     <v-row
       justify="center"
@@ -34,12 +35,7 @@
       >
         Kontakt
       </v-btn>
-      <v-col
-        class="primary lighten-2 py-4 text-center white--text"
-        cols="12"
-      >
-        {{ new Date().getFullYear() }} — <strong>Goethe Social</strong>
-      </v-col>
+      
     </v-row>
   </v-footer>
 </template>
@@ -57,7 +53,5 @@
 </script>
 
 <style>
-  .footer {
-    margin-bottom: 0;
-  }
+  
 </style>
