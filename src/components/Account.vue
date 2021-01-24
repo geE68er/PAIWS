@@ -13,7 +13,7 @@
         >
           <v-img
       src="https://randomuser.me/api/portraits/women/39.jpg"
-      height="300px"
+      height="400px"
       dark
     >
       <v-row class="fill-height">
@@ -39,8 +39,8 @@
 
         <v-spacer></v-spacer>
 
-        <v-card-title class="white--text pl-12 pt-12">
-          <div class="display-1 pl-12 pt-12">
+        <v-card-title>
+          <div>
             Marina Vladimirova Putin
           </div>
         </v-card-title>
@@ -90,6 +90,13 @@
         { text: 'Fussball Turnier', date: '24.01.2021' },
         { text: 'Lerngruppe', date: '26.01.2021' },
         { text: 'Schachklub', date: '29.01.2021'},
+        { text: 'Schlammcatchen', date: '30.01.2021'},
+        { text: 'Schlammcatchen Advanced', date: '31.01.2021'},
+        { text: 'Schlammcatchen Pro', date: '29.01.2021'},
+        { text: 'Schlammcatchen Gruppen', date: '29.01.2021'},
+        { text: 'Schlammcatchen Gruppen', date: '29.01.2021'},
+        { text: 'Schlammcatchen Gruppen', date: '29.01.2021'},
+        { text: 'Schlammcatchen Gruppen', date: '29.01.2021'},
       ],
     }),
   }
