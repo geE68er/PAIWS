@@ -55,7 +55,7 @@ export default {
     prettyDate(dateUTC) {
       let date = new Date(dateUTC)
       let result = this.twoDigit(date.getDate()) + ". " + this.monthNames[date.getMonth()] + " " + date.getFullYear()
-      result += " " + this.twoDigit(date.getHours()) + ":" + this.twoDigit(date.getMinutes())
+      result += " " + this.twoDigit(date.getHours()) + ":" + this.twoDigit(date.getMinutes()) + " Uhr"
       return result
     },
     
