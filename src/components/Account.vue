@@ -1,14 +1,10 @@
 <template>
-<v-card height="150px">
-    <v-navigation-drawer
-      absolute
-      permanent
-      right>
-
-     <template v-slot:prepend>
+  <v-card height="1p50x">
+    <v-navigation-drawer absolute permanent right>
+      <template v-slot:prepend>
         <v-list-item two-line>
           <v-list-item-avatar>
-            <img src="https://randomuser.me/api/portraits/women/81.jpg">
+            <img src="https://randomuser.me/api/portraits/women/81.jpg" />
           </v-list-item-avatar>
 
           <v-list-item-content>
@@ -17,14 +13,20 @@
           </v-list-item-content>
         </v-list-item>
       </template>
-
-
     </v-navigation-drawer>
-    </v-card>
+  </v-card>
 </template>
 
 <script>
 export default {
-  
-}
+  data() {
+    return {
+      items: [
+        { title: "Home", icon: "mdi-home-city" },
+        { title: "My Account", icon: "mdi-account" },
+        { title: "Users", icon: "mdi-account-group-outline" }
+      ]
+    };
+  }
+};
 </script>
