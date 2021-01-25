@@ -1,10 +1,54 @@
 <template>
-  <div>
-    <img src="https://www.messe-berlin.de/media/mb/mb_media/guest_events/wir_lieben_events02_XXXLMobile43.jpg">
-  </div>
-  
+  <v-card
+    class="mx-auto"
+    max-width="60%"
+  >
+    <v-container 
+    fluid
+    v-for="event in events"
+    :key="event.title"
+    :cols="event.flex">
+      <v-row dense>
+        <v-col>
+          <v-card>
+            <v-img
+              :src="event.src"
+              class="white--text align-end"
+              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+              height="200px"
+            >
+              <v-card-title v-text="event.title"></v-card-title>
+            </v-img>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn icon>
+                <v-icon>mdi-heart</v-icon>
+              </v-btn>
+
+              <v-btn icon>
+                <v-icon>mdi-bookmark</v-icon>
+              </v-btn>
+
+              <v-btn icon>
+                <v-icon>mdi-share-variant</v-icon>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-card>
 </template>
 
 <script>
-export default {};
+  export default {
+    data: () => ({
+      events: [
+        { title: 'Rudern', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
+        { title: 'Zumba', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
+        ],
+    }),
+  }
 </script>
