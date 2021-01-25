@@ -46,8 +46,8 @@
   export default {
     data: () => ({
       events: [
-        { title: 'Rudern', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-        { title: 'Zumba', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
+        { title: 'Rudern', src: '', flex: 0 },
+        { title: 'Bierkrug-Stemmen', src: '', flex: 0 },
         ],
     }),
   }
