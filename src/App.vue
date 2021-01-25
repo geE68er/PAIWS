@@ -66,7 +66,6 @@ export default {
         {title: 'Events', path: '/events', icon: 'mdi-calendar'},
         {title: 'Account', path: '/account', icon: 'mdi-account'},
         {title: 'Login', path: '/login', icon: 'mdi-login'},
-        {title: 'Register', path: '/register', icon: 'mdi-account-plus'},
       ]
     }
   },
