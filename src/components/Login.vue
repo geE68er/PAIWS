@@ -3,7 +3,7 @@
       <v-card width="500" class="mx-auto mt-9">
         <v-card-title>Anmelden</v-card-title>
         <v-card-text>
-          <v-text-field label="E-Mail" prepend-icon="mdi-account-circle"/>
+          <v-text-field label="E-Mail" prepend-icon="mdi-email-multiple"/>
           <v-text-field 
           label="Passwort" 
           :type="showPassword ? 'text' : 'password'"
