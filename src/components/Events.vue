@@ -1,4 +1,5 @@
 <template>
+
   <div>
     <img class="event-pic" src="https://www.messe-berlin.de/media/mb/mb_media/guest_events/wir_lieben_events02_XXXLMobile43.jpg">
     <div class="event-element" v-for="event in events" :key="event.ID">
