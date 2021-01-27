@@ -1,54 +1,69 @@
 <template>
-  <v-card
-    class="mx-auto"
-    max-width="60%"
-  >
-    <v-container 
-    fluid
-    v-for="event in events"
-    :key="event.title"
-    :cols="event.flex">
-      <v-row dense>
-        <v-col>
-          <v-card>
-            <v-img
-              :src="event.src"
-              class="white--text align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="200px"
-            >
-              <v-card-title v-text="event.title"></v-card-title>
-            </v-img>
 
-            <v-card-actions>
-              <v-spacer></v-spacer>
-
-              <v-btn icon>
-                <v-icon>mdi-heart</v-icon>
-              </v-btn>
-
-              <v-btn icon>
-                <v-icon>mdi-bookmark</v-icon>
-              </v-btn>
-
-              <v-btn icon>
-                <v-icon>mdi-share-variant</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-card>
+  <div>
+    <img class="event-pic" src="https://www.messe-berlin.de/media/mb/mb_media/guest_events/wir_lieben_events02_XXXLMobile43.jpg">
+    <div class="event-element" v-for="event in events" :key="event.ID">
+      <table>
+        <tr><b>{{ event.title }} </b></tr>
+        <tr>
+          <td> Datum: {{ prettyDate(event.date) }} </td>
+        </tr>
+        <tr>
+          <td> {{ event.description }} </td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </template>
 
-<script>
-  export default {
-    data: () => ({
-      events: [
-        { title: 'Rudern', src: '', flex: 0 },
-        { title: 'Bierkrug-Stemmen', src: '', flex: 0 },
-        ],
-    }),
+<style>
+  .event-element {
+    padding: 1em;
   }
+  .event-pic {
+    width: 42%;
+  }
+</style>
+
+<script>
+export default {
+  name: 'EventContainer',
+  props: ['events'],
+  data: () => ({
+    dummyEvents: [
+      {
+        "ID" : 1,
+        "title" : "Rudern",
+        "description" : "Rudern macht Spaß!!!",
+        "date": "Wed, 03 Feb 2021 14:00:00 GMT"
+      },
+      {
+        "ID": 2,
+        "title" : "Zumba",
+        "description" : "Zumba ist total im Trend. le fin",
+        "date": "Fri, 05 Feb 2021 12:00:00 GMT"
+      }
+    ],
+    monthNames: ["Januar", "Februar", "März", "April", "Mai", "Juni",
+     "Juli", "August", "September", "Oktober", "November", "Dezember"
+    ]
+  }),
+  mounted () {
+    this.events = this.dummyEvents
+  },
+
+  methods: {
+    prettyDate(dateUTC) {
+      let date = new Date(dateUTC)
+      let result = this.twoDigit(date.getDate()) + ". " + this.monthNames[date.getMonth()] + " " + date.getFullYear()
+      result += " " + this.twoDigit(date.getHours()) + ":" + this.twoDigit(date.getMinutes()) + " Uhr"
+      return result
+    },
+    
+    twoDigit(num) {
+      let result = num < 10 ? "0" : ""
+      return result + num
+    }
+  }
+};
 </script>
