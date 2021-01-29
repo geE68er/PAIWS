@@ -1,10 +1,23 @@
 <template>
+<div>
+  <v-col class="text-right">
+  <v-spacer></v-spacer>
+  <v-btn 
+  fab
+  elevation="5"
+  color="red"
+  x-large
+  ><router-link to="/Createevent" tag="span"><v-icon>mdi-plus</v-icon></router-link>
+  </v-btn>
+  </v-col>
 <v-layout wrap>
+  
 <v-flex v-for="event in events" :key="event.ID">
   <v-card
     class="mx-auto"
     width="500"
     outlined
+    elevation="5"
   >
     <v-list-item three-line>
       <v-list-item-content>
@@ -65,6 +78,7 @@
   </v-card>
 </v-flex>
 </v-layout>
+</div>
 </template>
 
 <script>
@@ -102,6 +116,24 @@ export default {
       },
       {
         "ID" : 4,
+        "category": "Essen und Trinken",
+        "title" : "Asiatisches Kochen",
+        "description" : "Wir machen Sushi",
+        "date": "Fri, 19 Feb 2021 20:00:00 GMT",
+        "picture": "https://static.zentrum-der-gesundheit.de/img/0baedee5b5ff8a545a5ebe089ce4a7a9",
+        show: false
+      },
+      {
+        "ID" : 5,
+        "category": "Essen und Trinken",
+        "title" : "Asiatisches Kochen",
+        "description" : "Wir machen Sushi",
+        "date": "Fri, 19 Feb 2021 20:00:00 GMT",
+        "picture": "https://static.zentrum-der-gesundheit.de/img/0baedee5b5ff8a545a5ebe089ce4a7a9",
+        show: false
+      },
+      {
+        "ID" : 6,
         "category": "Essen und Trinken",
         "title" : "Asiatisches Kochen",
         "description" : "Wir machen Sushi",
