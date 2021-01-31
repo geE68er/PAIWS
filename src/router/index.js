@@ -8,6 +8,7 @@ import Register from "../components/Register";
 import About from "../components/About";
 import Impressum from "../components/Impressum";
 import Events from "../components/Events";
+import Createevent from "../components/Createevent";
 
 
 Vue.use(Router);
@@ -53,6 +54,11 @@ export default new Router({
       path: "/events",
       name: "Events",
       component: Events
+    },
+    {
+      path: "/createevent",
+      name: "Createevent",
+      component: Createevent
     }
   ]
 });

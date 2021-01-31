@@ -20,7 +20,7 @@
       </span>
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor:pointer">
-          {{appTitle}}
+          <v-img :src="require('../public/Logo.png')" class="logo"/>
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
@@ -60,7 +60,6 @@ export default {
 
   data() {
     return {
-      appTitle: 'Goethe Social',
       sidebar: false,
       menuItems: [
         {title: 'Events', path: '/events', icon: 'mdi-calendar'},
@@ -96,5 +95,12 @@ export default {
 
   .toolbar {
     height: 5vh;
+  }
+
+  .logo {
+    margin-top: 35px;
+    margin-bottom: 20px;
+    width: 60%;
+    height: auto;
   }
 </style>
