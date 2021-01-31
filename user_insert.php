@@ -1,28 +1,21 @@
 <?php
-$servername = "mysql.webhosting32.1blu.de";
-$username = "s298619_3159941";
-$password = "Diese(passwort1337";
-$dbname = "db298619x3159941";
-$fname = $_POST["fname"];
-$nname = $_POST["nname"];
-$pwo = $_POST["password"];
+// Skrit um sich mit der Datenbank zu verbinden
+include('dbcon.php');
+
+// Variablen gespeichert, die mit der POST-Methode übergeben werden
+$fname = $_POST["fname"]; //am besten benutzt ihr die Namen, wie sie 
+$nname = $_POST["nname"]; // in den eckigen Klammern stehen für eure 
+$pwo = $_POST["password"]; //übergabe
 $adr = $_POST["adr"];
 $mail = $_POST["mail"];
 
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-
+// das sql insert mit den Attributnamen der Tabelle und den Werten
 $sql ="INSERT INTO user(uid, uname, ulname, uadrs,umail, upwd)
-VALUES(null,'$nname','$fname','$adr','$mail','$pwo');";
-if($conn->query($sql) == true){
+VALUES(null,'$nname','$fname','$adr','$mail','$pwo');"; // die durch das Skript
+if($conn->query($sql) == true){ //eingefügt werden
 	echo "User hinzugefügt!";
 } else { "Hat nicht geklappt!" . $conn->error;
 }
+include('extr_user.php');
 
 ?> 

@@ -1,8 +1,5 @@
 <?php
-$servername = "mysql.webhosting32.1blu.de";
-$username = "s298619_3159941";
-$password = "Diese(passwort1337";
-$dbname = "db298619x3159941";
+include(dbcon.php);
 $eName = $_POST["ename"];
 $euId = null // $_POST["uID"]; verknuepfung zur user tabelle, erstellender user automatsich einfügen!?
 $eDesc = $_POST["des"];
