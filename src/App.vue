@@ -100,7 +100,7 @@ export default {
   .logo {
     margin-top: 35px;
     margin-bottom: 20px;
-    width: 60%;
+    max-width: 60%;
     height: auto;
   }
 </style>
