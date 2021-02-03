@@ -12,7 +12,7 @@
   </v-col>
 <v-layout wrap>
   
-<v-flex v-for="event in events" :key="event.ID">
+<v-flex v-for="event in events" :key="event.eventid">
   <v-card
     class="mx-auto"
     width="500"
@@ -22,21 +22,19 @@
     <v-list-item three-line>
       <v-list-item-content>
         <div class="overline mb-4">
-          {{event.category}}
+          {{event.eventtme}}
         </div>
         <v-list-item-title class="headline mb-1">
-         {{event.title}}
+         {{event.eventname}}
         </v-list-item-title>
-        <v-list-item-subtitle>{{event.description}}</v-list-item-subtitle>
+        <v-list-item-subtitle>{{event.eventuid}}</v-list-item-subtitle>
       </v-list-item-content>
 
       <v-list-item-avatar
         tile
         size="80"
       >
-        <v-img
-        :src=event.picture
-        ></v-img>
+        
       </v-list-item-avatar>
     </v-list-item>
 
@@ -67,11 +65,11 @@
     </v-card-actions>
 
     <v-expand-transition>
-      <div v-show="event.show">
+      <div>
         <v-divider></v-divider>
 
         <v-card-text>
-          {{prettyDate(event.date)}}
+          {{event.eventname}}
         </v-card-text>
       </div>
     </v-expand-transition>
@@ -90,7 +88,7 @@ export default {
   },
 
   beforeCreate() {
-    fetch("../extremeevent.php")
+    fetch("../extremevent.php")
     .then(response => response.json())
     .then(data => {
       this.events = data
