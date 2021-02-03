@@ -5,18 +5,21 @@
         cols="4"
         sm="9"
         md="2"
+      
       >
         <v-card
           class="pa-0"
           outlined
           tile
+  
         >
           <v-img
       src="https://randomuser.me/api/portraits/women/39.jpg"
-      height="400px"
+      
       dark
+      
     >
-      <v-row class="fill-height">
+      <v-row>
         <v-card-title>
           
           <v-spacer></v-spacer>
@@ -25,6 +28,7 @@
             dark
             icon
             class="mr-4"
+          
           >
             <v-icon>mdi-image</v-icon>
           </v-btn>
@@ -65,8 +69,19 @@
                 >
                   <v-list-item-content>
                     <v-list-item-title v-text="item.text"></v-list-item-title>
+                  </v-list-item-content>
+
+                  <v-list-item-content>
                     <v-list-item-title v-text="item.date"></v-list-item-title>
                   </v-list-item-content>
+
+                  <v-list-item-content>
+                    <v-list-item-title>
+                      <v-btn><v-icon dark red rounded>mdi-delete</v-icon></v-btn>
+                    </v-list-item-title>
+                  </v-list-item-content> 
+
+
                 </v-list-item>
               </v-list-item-group>
             </v-list>
@@ -83,14 +98,8 @@
       items: [
         { text: 'Fussball Turnier', date: '24.01.2021' },
         { text: 'Lerngruppe', date: '26.01.2021' },
-        { text: 'Schachklub', date: '29.01.2021'},
-        { text: 'Schlammcatchen', date: '30.01.2021'},
-        { text: 'Schlammcatchen Advanced', date: '31.01.2021'},
-        { text: 'Schlammcatchen Pro', date: '29.01.2021'},
-        { text: 'Schlammcatchen Gruppen', date: '29.01.2021'},
-        { text: 'Schlammcatchen Gruppen', date: '29.01.2021'},
-        { text: 'Schlammcatchen Gruppen', date: '29.01.2021'},
-        { text: 'Schlammcatchen Gruppen', date: '29.01.2021'},
+        { text: 'Schachklub', date: '29.01.2021'}
+        
       ],
     }),
   }
