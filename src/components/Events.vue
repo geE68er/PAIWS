@@ -83,18 +83,21 @@
 
 <script>
 export default {
-  name: 'EventContainer',
-  props: ['events'],
-  mounted () {
-    this.events = this.dummyEvents
+  data() {
+    return {
+      events: []
+    }
   },
-  beforeCreate: {
-    fetch("extreme_event.php", requestOptions)
-    .then(response => response.json())
-    .then(data => {
-      this.news = data
-      console.log(data);
+  mounted() {
+    fetch('../extremeevent.php')
+      .then(response => response.json())
+      .then(data => {
+        this.events = data
+        console.log(data);
+      })
   },
-  },
+  beforeCreate() {
+
+  }
 };
 </script>
