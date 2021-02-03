@@ -85,82 +85,16 @@
 export default {
   name: 'EventContainer',
   props: ['events'],
-  data: () => ({
-    dummyEvents: [
-      {
-        "ID" : 1,
-        "category": "Sport",
-        "title" : "Rudern",
-        "description" : "Rudern macht Spaß!!!",
-        "date": "Wed, 03 Feb 2021 14:00:00 GMT",
-        "picture": "https://media0.faz.net/ppmedia/aktuell/sport/3604811189/1.6876982/default-retina/einsamer-einer-ruderer-oliver.jpg",
-        show: false
-      },
-      {
-        "ID": 2,
-        "category": "Sport",
-        "title" : "Zumba",
-        "description" : "Zumba ist total im Trend. le fin",
-        "date": "Fri, 05 Feb 2021 12:00:00 GMT",
-        "picture": "https://www.zumba.com/img/blt/about/about-video-xsmall.jpg",
-        show: false
-      },
-      {
-        "ID" : 3,
-        "category": "Spiel und Spaß",
-        "title" : "Monopoly Spieleabend",
-        "description" : "Bringt die vollen Geldbörsen mit!",
-        "date": "Fri, 12 Feb 2021 20:00:00 GMT",
-        "picture": "https://images-na.ssl-images-amazon.com/images/I/41U5-lzc33L._AC_SX466_.jpg",
-        show: false
-      },
-      {
-        "ID" : 4,
-        "category": "Essen und Trinken",
-        "title" : "Asiatisches Kochen",
-        "description" : "Wir machen Sushi",
-        "date": "Fri, 19 Feb 2021 20:00:00 GMT",
-        "picture": "https://static.zentrum-der-gesundheit.de/img/0baedee5b5ff8a545a5ebe089ce4a7a9",
-        show: false
-      },
-      {
-        "ID" : 5,
-        "category": "Essen und Trinken",
-        "title" : "Asiatisches Kochen",
-        "description" : "Wir machen Sushi",
-        "date": "Fri, 19 Feb 2021 20:00:00 GMT",
-        "picture": "https://static.zentrum-der-gesundheit.de/img/0baedee5b5ff8a545a5ebe089ce4a7a9",
-        show: false
-      },
-      {
-        "ID" : 6,
-        "category": "Essen und Trinken",
-        "title" : "Asiatisches Kochen",
-        "description" : "Wir machen Sushi",
-        "date": "Fri, 19 Feb 2021 20:00:00 GMT",
-        "picture": "https://static.zentrum-der-gesundheit.de/img/0baedee5b5ff8a545a5ebe089ce4a7a9",
-        show: false
-      },
-    ],
-    monthNames: ["Januar", "Februar", "März", "April", "Mai", "Juni",
-     "Juli", "August", "September", "Oktober", "November", "Dezember"
-    ]
-  }),
   mounted () {
     this.events = this.dummyEvents
   },
-  methods: {
-    prettyDate(dateUTC) {
-      let date = new Date(dateUTC)
-      let result = this.twoDigit(date.getDate()) + ". " + this.monthNames[date.getMonth()] + " " + date.getFullYear()
-      result += " " + this.twoDigit(date.getHours()) + ":" + this.twoDigit(date.getMinutes()) + " Uhr"
-      return result
-    },
-    
-    twoDigit(num) {
-      let result = num < 10 ? "0" : ""
-      return result + num
-    }
-  }
+  beforeCreate: {
+    fetch("extreme_event.php", requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      this.news = data
+      console.log(data);
+  },
+  },
 };
 </script>
