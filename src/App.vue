@@ -13,7 +13,7 @@
         </v-btn>
     </v-navigation-drawer>
 
-    <v-toolbar app>
+    <v-toolbar app id="navigation">
       <span class="hidden-sm-and-up">
         <v-app-bar-nav-icon @click="sidebar = !sidebar">
         </v-app-bar-nav-icon>
@@ -93,14 +93,13 @@ export default {
     margin-top: 5%;
   }
 
-  .toolbar {
-    height: 5vh;
+  #navigation {
+    height: 100px;
   }
 
   .logo {
-    margin-top: 35px;
-    margin-bottom: 20px;
-    max-width: 60%;
-    height: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
   }
 </style>
