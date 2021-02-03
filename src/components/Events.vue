@@ -88,15 +88,14 @@ export default {
       events: []
     }
   },
-  mounted() {
-    fetch('../extremeevent.php')
-      .then(response => response.json())
-      .then(data => {
-        this.events = data
-        console.log(data);
-      })
-  },
+
   beforeCreate() {
+    fetch("../extremeevent.php")
+    .then(response => response.json())
+    .then(data => {
+      this.events = data
+      console.log(data)
+    })
 
   }
 };
