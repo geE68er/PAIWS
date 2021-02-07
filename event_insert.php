@@ -21,7 +21,7 @@ echo "Connected successfully";
 $sql ="INSERT INTO event(eventID, eventname, eventuid, eventloc, eventabt, eventrtng, eventtme, eventdte, eventdrtn, eventtmbr, eventcp)
 VALUES(null,'$eName','$euId','$eLoc', '$eDesc', '$erating','$ecreationtime', '$edate', '$eduration', null, '$membCap');";
 if($conn->query($sql) == true){
-	echo "User hinzugefügt!";
+	echo "Event hinzugefügt!";
 } else { "Hat nicht geklappt!" . $conn->error;
 }
 
