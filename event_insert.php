@@ -18,3 +18,4 @@ $membCap = null;//$_POST["memberC"];
 $sql1 ="INSERT INTO event(eventname, eventuid, eventloc, eventrtng, eventtme, eventdte, eventdrtn, eventmbr, eventcp)
 VALUES('$eName',null,null,null, null ,null, null , null, null);";
 if($conn->query($sql1) == true){
+}
