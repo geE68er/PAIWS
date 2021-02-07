@@ -31,5 +31,5 @@ export default {
       showPassword:false
     }
   }
-}}
+}
 </script>
