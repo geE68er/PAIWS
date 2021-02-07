@@ -17,7 +17,7 @@
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
-          <button class="submit" v-on:click="addEvent()"><router-link to="" tag="span">Erstellen</router-link></button>
+          <button class="submit" v-on:click="addEvent()">Erstellen</button>
         </v-card-actions>
       </v-card>
     </v-content>
@@ -28,7 +28,11 @@ export default {
   methods: {
     addEvent:function(){
       let e_name = document.getElementsByName("eventname")[0].value;
+      let e_place = document.getElementsByName("place")[0].value;
+      let e_description = document.getElementsByName("description")[0].value;
       alert(e_name);
+      alert(e_place);
+      alert(e_description);
     }
   }
 }
@@ -36,6 +40,9 @@ export default {
 
 <style>
   .submit {
+    color: white;
     background-color: red;
+    font-family: "Roboto", sans-serif;
+    padding: 5px 20px 5px 20px;
   }
 </style>
