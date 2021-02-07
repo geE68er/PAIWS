@@ -1,45 +1,49 @@
 <template>
-  <v-content>
-      <v-card max-width="700" max-height="1000" class="mx-auto mt-9">
-        <v-card-title>Event erstellen</v-card-title>
-        <v-card-text>
-          <v-text-field required name="eventname" placeholder="Eventname" prepend-icon="mdi-account-circle"/>
-          <v-text-field required name="place" placeholder="Ort" prepend-icon="mdi-map-marker"/>
-          <v-text-field required name="description" placeholder="Beschreibung" prepend-icon="mdi-lead-pencil"/>
-          <v-datetime-picker required name="time" v-model="formattedDatetime" date-format="dd.MM.yyyy" label="Datum und Uhrzeit">
-                  <template slot="dateIcon">
-                    <v-icon>mdi-calendar</v-icon>
-                  </template>
-                  <template slot="timeIcon">
-                    <v-icon>mdi-clock-outline</v-icon>
-                  </template>
-                </v-datetime-picker>
-        </v-card-text>
-        <v-divider></v-divider>
-        <v-card-actions>
-          <button class="submit" v-on:click="addEvent()">Erstellen</button>
-        </v-card-actions>
-      </v-card>
-    </v-content>
+  <form action="../event_insert.php" method="post" id="form">
+    <table>
+      <tr>
+        <td><v-icon>mdi-account</v-icon></td>
+        <td><input type="text" name="ename" placeholder="Eventname"></td>
+      </tr>
+      <tr>
+        <td><v-icon>mdi-map-marker</v-icon></td>
+        <td><input type="text" name="loc" placeholder="Ort"></td>
+      </tr>
+      <tr>
+        <td><v-icon>mdi-lead-pencil</v-icon></td>
+        <td><input type="text" name="des" placeholder="Beschreibung"></td>
+      </tr>
+      <tr>
+        <td><v-icon>mdi-account-multiple</v-icon></td>
+        <td><input type="text" name="memberC" placeholder="Max. Teilnehmer"></td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Erstellen" /></td>
+        <td></td>
+      </tr>
+    </table>
+  </form>
 </template>
 
 <script>
 export default {
   methods: {
     addEvent:function(){
-      let e_name = document.getElementsByName("eventname")[0].value;
-      let e_place = document.getElementsByName("place")[0].value;
-      let e_description = document.getElementsByName("description")[0].value;
-      alert(e_name);
-      alert(e_place);
-      alert(e_description);
+      let ename = document.getElementsByName("ename")[0].value;
+      let loc = document.getElementsByName("loc")[0].value;
+      let des = document.getElementsByName("des")[0].value;
+      let memberC = document.getElementsByName("memberC")[0].value;
+      alert(ename);
+      alert(loc);
+      alert(des);
+      alert(memberC);
     }
   }
 }
 </script>
 
 <style>
-  .submit {
+  input[type="submit"] {
     color: white;
     background-color: red;
     font-family: "Roboto", sans-serif;
