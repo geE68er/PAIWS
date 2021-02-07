@@ -1,5 +1,5 @@
 <?php
-// Skrit um sich mit der Datenbank zu verbinden
+// Skript um sich mit der Datenbank zu verbinden
 include('dbcon.php');
 
 // Variablen gespeichert, die mit der POST-Methode übergeben werden
