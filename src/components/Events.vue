@@ -22,12 +22,12 @@
     <v-list-item three-line>
       <v-list-item-content>
         <div class="overline mb-4">
-          {{event.eventtme}}
+          {{event.eventloc}}
         </div>
         <v-list-item-title class="headline mb-1">
          {{event.eventname}}
         </v-list-item-title>
-        <v-list-item-subtitle>{{event.eventuid}}</v-list-item-subtitle>
+        <v-list-item-subtitle>{{event.eventdte}}</v-list-item-subtitle>
       </v-list-item-content>
 
       <v-list-item-avatar
@@ -69,7 +69,8 @@
         <v-divider></v-divider>
 
         <v-card-text>
-          {{event.eventname}}
+          Max. Teilnehmer: {{event.eventcp}} <br><br>
+          {{event.eventabt}}
         </v-card-text>
       </div>
     </v-expand-transition>
