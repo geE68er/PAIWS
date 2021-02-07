@@ -27,18 +27,7 @@
 
 <script>
 export default {
-  methods: {
-    addEvent:function(){
-      let ename = document.getElementsByName("ename")[0].value;
-      let loc = document.getElementsByName("loc")[0].value;
-      let des = document.getElementsByName("des")[0].value;
-      let memberC = document.getElementsByName("memberC")[0].value;
-      alert(ename);
-      alert(loc);
-      alert(des);
-      alert(memberC);
-    }
-  }
+  
 }
 </script>
 
