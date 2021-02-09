@@ -32,30 +32,22 @@ export default {
       //create an empty string for the possible error message
     let errorMessage = '';
 
-    //checks if "vorname" is empty
     let ename = document.getElementsByName("ename")[0].value;
-
     if (ename == '') {
         errorMessage += 'Eventname fehlt. \n';
     }
 
-    //checks if "name" is empty
     let loc = document.getElementsByName("loc")[0].value;
-
     if (loc == '') {
         errorMessage += 'Ort fehlt. \n';
     }
     
-    //checks if "email" is empty
     let des = document.getElementsByName("des")[0].value;
-    
     if (des == ''){
         errorMessage += 'Beschreibung fehlt. \n';
     }
 
-    //checks if "kurs" is empty
     let memberC = document.getElementsByName("memberC")[0].value;
-
     if (memberC == 0) {
         errorMessage += 'Max. Teilnehmer fehlt. \n';
     }
