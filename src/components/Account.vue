@@ -93,14 +93,26 @@
 
 <script>
   export default {
-    data: () => ({
-      selectedItem: 1,
-      items: [
-        { text: 'Fussball Turnier', date: '24.01.2021' },
-        { text: 'Lerngruppe', date: '26.01.2021' },
-        { text: 'Schachklub', date: '29.01.2021'}
-        
-      ],
-    }),
+    data: () => {
+      return {
+        user: [],
+        selectedItem: 1,
+        items: [
+          { text: 'Fussball Turnier', date: '24.01.2021' },
+          { text: 'Lerngruppe', date: '26.01.2021' },
+          { text: 'Schachklub', date: '29.01.2021'},
+        ],
+      }
+    },
+
+    beforeCreate() {
+      fetch("../extremuser.php")
+      .then(response => response.json())
+      .then(data => {
+        this.user = data
+        console.log(data)
+      })
+
+  }
   }
 </script>
