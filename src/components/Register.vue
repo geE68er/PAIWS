@@ -3,18 +3,13 @@
       <v-card width="500" class="mx-auto mt-9">
         <v-card-title>Registrieren</v-card-title>
         <v-card-text>
-          <v-text-field label="Name" prepend-icon="mdi-account-circle"/>
-          <v-text-field label="E-Mail" prepend-icon="mdi-email-multiple"/>
-          <v-text-field label="Straße, Nummer" prepend-icon="mdi-map-marker"/>
-          <v-text-field label="Stadt" prepend-icon="mdi-city"/>
+          <v-text-field name="fname" label="Vorname" prepend-icon="mdi-account"/>
+          <v-text-field name="nname" label="Nachname" prepend-icon="mdi-account"/>
+          <v-text-field name="adr" label="Adresse" prepend-icon="mdi-map-marker"/>
+          <v-text-field name="mail" label="E-Mail" prepend-icon="mdi-email-multiple"/>
           <v-text-field 
+          name="password"
           label="Passwort" 
-          :type="showPassword ? 'text' : 'password'"
-          prepend-icon="mdi-lock"
-          :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-          @click:append="showPassword = !showPassword"/>
-          <v-text-field 
-          label="Passwort bestätigen" 
           :type="showPassword ? 'text' : 'password'"
           prepend-icon="mdi-lock"
           :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
