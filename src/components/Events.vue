@@ -48,7 +48,7 @@
       <v-spacer></v-spacer>
 
       <v-btn icon>
-        <v-icon>mdi-thumb-up</v-icon>
+        <v-icon>mdi-thumb-up {{event.eventrtng}}</v-icon>
       </v-btn>
 
       <v-btn icon>
