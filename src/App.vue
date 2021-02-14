@@ -1,16 +1,10 @@
 <template>
   <v-app>
     <v-navigation-drawer v-model="sidebar" app>
-      <v-btn
-          text
-          block
-          x-large
-          v-for="item in menuItems"
-          :key="item.path"
-          :to="item.path">
-          <v-icon left dark>{{ item.icon }}</v-icon>
-          {{item.title}}
-        </v-btn>
+        <v-btn block text x-large :key="'/events'" :to="'/events'"><v-icon>mdi-calendar</v-icon>Events</v-btn>
+        <v-btn block text x-large :key="'/account'" :to="'/account'"><v-icon>mdi-account</v-icon>Account</v-btn>
+        <v-btn block text x-large :key="'/login'" :to="'/login'"><v-icon>mdi-login</v-icon>Login</v-btn>
+        <v-btn block text x-large :key="'/logout'" :to="'/logout'"><v-icon>mdi-logout</v-icon>Logout</v-btn>
     </v-navigation-drawer>
 
     <v-toolbar app id="navigation">
@@ -25,16 +19,12 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-        <v-btn
-          depressed
-          text
-          x-large
-          v-for="item in menuItems"
-          :key="item.path"
-          :to="item.path">
-          <v-icon left dark>{{ item.icon }}</v-icon>
-          {{item.title}}
-        </v-btn>
+        <v-btn depressed text x-large :key="'/events'" :to="'/events'"><v-icon>mdi-calendar</v-icon>Events</v-btn>
+        <v-btn depressed text x-large :key="'/account'" :to="'/account'"><v-icon>mdi-account</v-icon>Account</v-btn>
+        <div v-if="!$auth.loading">
+          <v-btn v-if="!$auth.isAuthenticated" depressed text x-large :key="'/login'" :to="'/login'" ><v-icon>mdi-login</v-icon>Login</v-btn>
+          <v-btn v-if="$auth.isAuthenticated" depressed text x-large :key="'/logout'" :to="'/logout'"><v-icon>mdi-logout</v-icon>Logout</v-btn>
+        </div>
       </v-toolbar-items>  
     </v-toolbar>
 
@@ -61,14 +51,22 @@ export default {
   data() {
     return {
       sidebar: false,
-      menuItems: [
-        {title: 'Events', path: '/events', icon: 'mdi-calendar'},
-        {title: 'Account', path: '/account', icon: 'mdi-account'},
-        {title: 'Login', path: '/login', icon: 'mdi-login'},
-      ]
     }
   },
-};
+
+  methods: {
+    // Log the user in
+    login() {
+      this.$auth.loginWithRedirect();
+    },
+    // Log the user out
+    logout() {
+      this.$auth.logout({
+        returnTo: window.location.origin
+      });
+    }
+}
+}
 </script>
 
 <style>
