@@ -40,18 +40,18 @@
 
     <v-card-actions>
       <v-btn
-        icon
+        icon 
         @click="event.show = !event.show"
       >
         <v-icon>{{ event.show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
 
-      <v-btn icon>
+      <v-btn icon v-bind:disabled="hasVoted" >       
         <v-icon>mdi-thumb-up {{event.eventrtng}}</v-icon>
       </v-btn>
 
-      <v-btn icon>
+      <v-btn icon v-bind:disabled="hasVoted" >       
         <v-icon>mdi-thumb-down</v-icon>
       </v-btn>
 
