@@ -1,76 +1,85 @@
 <template>
-  <form action="../event_insert.php" method="post" id="form" @submit="validateForm()">
-    <table>
-      <tr>
-        <td><v-icon>mdi-account</v-icon></td>
-        <td><input type="text" name="ename" placeholder="Eventname"></td>
-      </tr>
-      <tr>
-        <td><v-icon>mdi-map-marker</v-icon></td>
-        <td><input type="text" name="loc" placeholder="Ort"></td>
-      </tr>
-      <tr>
-        <td><v-icon>mdi-lead-pencil</v-icon></td>
-        <td><input type="text" name="des" placeholder="Beschreibung"></td>
-      </tr>
-      <tr>
-        <td><v-icon>mdi-account-multiple</v-icon></td>
-        <td><input type="text" name="memberC" placeholder="Max. Teilnehmer"></td>
-      </tr>
-      <tr>
-        <td><input type="submit" value="Erstellen"/></td>
-        <td></td>
-      </tr>
-    </table>
-  </form>
+  <b-row>
+    <b-col cols="12">
+      <h2>
+        Event hinzufügen
+      </h2>
+      <b-jumbotron>
+        <b-form @submit="onSubmit">
+          <b-form-group id="titleGroup"
+                    horizontal
+                    :label-cols="4"
+                    breakpoint="md"
+                    label="Titel einfügen">
+            <b-form-input id="title" v-model.trim="board.title"></b-form-input>
+          </b-form-group>
+          <b-form-group id="categoryGroup"
+                    horizontal
+                    :label-cols="4"
+                    breakpoint="md"
+                    label="Kategorie einfügen">
+            <b-form-input id="category" v-model.trim="board.category"></b-form-input>
+          </b-form-group>
+          <b-form-group id="descGroup"
+                    horizontal
+                    :label-cols="4"
+                    breakpoint="md"
+                    label="Beschreibung einfügen">
+              <b-form-textarea id="description"
+                         v-model="board.description"
+                         :rows="2"
+                         :max-rows="6">{{board.description}}</b-form-textarea>
+          </b-form-group>
+          <b-form-group id="authorGroup"
+                    horizontal
+                    :label-cols="4"
+                    breakpoint="md"
+                    label="Name des Erstellers">
+            <b-form-input id="author" v-model.trim="board.author"></b-form-input>
+          </b-form-group>
+          <b-button type="submit" variant="primary">Speichern</b-button>
+        </b-form>
+      </b-jumbotron>
+    </b-col>
+  </b-row>
 </template>
 
 <script>
+
+import firebase from '../Firebase'
+import router from '../router'
+
 export default {
+  name: 'Createevent',
+  data () {
+    return {
+      ref: firebase.firestore().collection('boards'),
+      board: {}
+    }
+  },
   methods: {
-    validateForm:function() {
-      //create an empty string for the possible error message
-    let errorMessage = '';
+    onSubmit (evt) {
+      evt.preventDefault()
 
-    let ename = document.getElementsByName("ename")[0].value;
-    if (ename == '') {
-        errorMessage += 'Eventname fehlt. \n';
-    }
-
-    let loc = document.getElementsByName("loc")[0].value;
-    if (loc == '') {
-        errorMessage += 'Ort fehlt. \n';
-    }
-    
-    let des = document.getElementsByName("des")[0].value;
-    if (des == ''){
-        errorMessage += 'Beschreibung fehlt. \n';
-    }
-
-    let memberC = document.getElementsByName("memberC")[0].value;
-    if (memberC == 0) {
-        errorMessage += 'Max. Teilnehmer fehlt. \n';
-    }
-
-    //if the error message is not empty, show error message and return false to stop the validation
-    if (errorMessage !== '') {
-        alert('Folgende Fehler sind aufgetreten: \n' + errorMessage);
-        return false;
-    }
-    //if the error message is empty, show which data is transmitted and finish validation
-    else {
-        return true;
+      this.ref.add(this.board).then(() => {
+        this.board.title = ''
+        this.board.category = ''
+        this.board.description = ''
+        this.board.author = ''
+        router.push({
+          name: 'Events'
+        })
+      })
+      .catch((error) => {
+        alert("Error adding document: ", error);
+      });
     }
   }
-}
 }
 </script>
 
 <style>
-  input[type="submit"] {
-    color: white;
-    background-color: red;
-    font-family: "Roboto", sans-serif;
-    padding: 5px 20px 5px 20px;
+  .jumbotron {
+    padding: 2rem;
   }
 </style>
