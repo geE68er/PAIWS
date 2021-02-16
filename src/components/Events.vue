@@ -3,11 +3,11 @@
     <b-col cols="12">
       <h2>
         Events
-        <b-link href="#/createevent">(Event hinzufügen)</b-link>
+        <b-link v-if="$auth.isAuthenticated" href="#/createevent">(Event hinzufügen)</b-link>
       </h2>
-      <b-table striped hover :items="boards" :fields="fields">
+      <b-table striped hover :items="events" :fields="fields">
         <template v-slot:cell(actions)="data">
-          <b-button @click.stop="details(data.item)" variant="primary">Details</b-button>
+          <b-button v-if="$auth.isAuthenticated" @click.stop="details(data.item)" variant="primary">Details</b-button>
         </template>
       </b-table>
     </b-col>
@@ -20,32 +20,34 @@ import firebase from '../Firebase'
 import router from '../router'
 
 export default {
-  name: 'BoardList',
+  name: 'Events',
   data () {
     return {
       fields: [
         { key: 'title', label: 'Titel', sortable: true, 'class': 'text-left' },
+        { key: 'category', label: 'Kategorie', sortable: true, 'class': 'text-left' },
         { key: 'actions', label: 'Action', 'class': 'text-center' }
       ],
-      boards: [],
+      events: [],
       errors: [],
-      ref: firebase.firestore().collection('boards'),
+      ref: firebase.firestore().collection('events'),
     }
   },
   created () {
     this.ref.onSnapshot((querySnapshot) => {
-      this.boards = [];
+      this.events = [];
       querySnapshot.forEach((doc) => {
-        this.boards.push({
+        this.events.push({
           key: doc.id,
-          title: doc.data().title
+          title: doc.data().title,
+          category: doc.data().category
         });
       });
     });
   },
   methods: {
-    details (board) {
-      router.push({ name: 'ShowBoard', params: { id: board.key }})
+    details (event) {
+      router.push({ name: 'ShowEvent', params: { id: event.key }})
     }
   }
 }
