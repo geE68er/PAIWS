@@ -8,9 +8,9 @@ import Register from "../components/Register";
 import About from "../components/About";
 import Impressum from "../components/Impressum";
 import Events from "../components/Events";
-import Createevent from "../components/Createevent";
-import EditBoard from '@/components/EditBoard';
-import ShowBoard from '@/components/ShowBoard';
+import CreateEvent from "../components/CreateEvent";
+import EditEvent from '@/components/EditEvent';
+import ShowEvent from '@/components/ShowEvent';
 
 
 Vue.use(Router);
@@ -59,18 +59,18 @@ export default new Router({
     },
     {
       path: "/createevent",
-      name: "Createevent",
-      component: Createevent
+      name: "CreateEvent",
+      component: CreateEvent
     },
     {
-      path: '/edit-board/:id',
-      name: 'EditBoard',
-      component: EditBoard
+      path: '/edit-event/:id',
+      name: 'EditEvent',
+      component: EditEvent
     },
     {
-      path: '/show-board/:id',
-      name: 'ShowBoard',
-      component: ShowBoard
+      path: '/show-event/:id',
+      name: 'ShowEvent',
+      component: ShowEvent
     },
   ]
 });
