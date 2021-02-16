@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <v-navigation-drawer v-model="sidebar" app>
-          <v-btn depressed text x-large :key="'/events'" :to="'/events'"><v-icon>mdi-calendar</v-icon>Events</v-btn>
-          <v-btn depressed text x-large :key="'/account'" :to="'/account'"><v-icon>mdi-account</v-icon>Account</v-btn>
         <div v-if="!$auth.loading">
+          <v-btn depressed text x-large :key="'/events'" :to="'/events'"><v-icon>mdi-calendar</v-icon>Events</v-btn>
+          <v-btn v-if="$auth.isAuthenticated" depressed text x-large :key="'/account'" :to="'/account'"><v-icon>mdi-account</v-icon>Account</v-btn>
           <v-btn v-if="!$auth.isAuthenticated" depressed text x-large @click="login" ><v-icon>mdi-login</v-icon>Login</v-btn>
           <v-btn v-if="$auth.isAuthenticated" depressed text x-large @click="logout"><v-icon>mdi-logout</v-icon>Logout</v-btn>
         </div>
@@ -21,12 +21,12 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-          <v-btn depressed text x-large :key="'/events'" :to="'/events'"><v-icon>mdi-calendar</v-icon>Events</v-btn>
-          <v-btn depressed text x-large :key="'/account'" :to="'/account'"><v-icon>mdi-account</v-icon>Account</v-btn>
-        <div v-if="!$auth.loading">
-          <v-btn v-if="!$auth.isAuthenticated" depressed text x-large @click="login" ><v-icon>mdi-login</v-icon>Login</v-btn>
-          <v-btn v-if="$auth.isAuthenticated" depressed text x-large @click="logout"><v-icon>mdi-logout</v-icon>Logout</v-btn>
-        </div>
+          <div v-if="!$auth.loading">
+            <v-btn depressed text x-large :key="'/events'" :to="'/events'"><v-icon>mdi-calendar</v-icon>Events</v-btn>
+            <v-btn v-if="$auth.isAuthenticated" depressed text x-large :key="'/account'" :to="'/account'"><v-icon>mdi-account</v-icon>Account</v-btn>
+            <v-btn v-if="!$auth.isAuthenticated" depressed text x-large @click="login" ><v-icon>mdi-login</v-icon>Login</v-btn>
+            <v-btn v-if="$auth.isAuthenticated" depressed text x-large @click="logout"><v-icon>mdi-logout</v-icon>Logout</v-btn>
+          </div>
       </v-toolbar-items>  
     </v-toolbar>
 
