@@ -11,14 +11,14 @@
                     :label-cols="4"
                     breakpoint="md"
                     label="Titel einfügen">
-            <b-form-input id="title" v-model.trim="board.title"></b-form-input>
+            <b-form-input id="title" v-model.trim="event.title"></b-form-input>
           </b-form-group>
           <b-form-group id="categoryGroup"
                     horizontal
                     :label-cols="4"
                     breakpoint="md"
                     label="Kategorie einfügen">
-            <b-form-input id="category" v-model.trim="board.category"></b-form-input>
+            <b-form-input id="category" v-model.trim="event.category"></b-form-input>
           </b-form-group>
           <b-form-group id="descGroup"
                     horizontal
@@ -26,16 +26,30 @@
                     breakpoint="md"
                     label="Beschreibung einfügen">
               <b-form-textarea id="description"
-                         v-model="board.description"
+                         v-model="event.description"
                          :rows="2"
-                         :max-rows="6">{{board.description}}</b-form-textarea>
+                         :max-rows="6">{{event.description}}</b-form-textarea>
+          </b-form-group>
+          <b-form-group id="dateGroup"
+                    horizontal
+                    :label-cols="4"
+                    breakpoint="md"
+                    label="Datum einfügen">
+              <b-form-input id="category" v-model.trim="event.date"></b-form-input>
+          </b-form-group>
+          <b-form-group id="participantsGroup"
+                    horizontal
+                    :label-cols="4"
+                    breakpoint="md"
+                    label="Teilnehmerzahl einfügen">
+              <b-form-input id="category" v-model.trim="event.participants"></b-form-input>
           </b-form-group>
           <b-form-group id="authorGroup"
                     horizontal
                     :label-cols="4"
                     breakpoint="md"
                     label="Name des Erstellers">
-            <b-form-input id="author" v-model.trim="board.author"></b-form-input>
+            <b-form-input id="author" v-model.trim="event.author"></b-form-input>
           </b-form-group>
           <b-button type="submit" variant="primary">Speichern</b-button>
         </b-form>
@@ -50,22 +64,24 @@ import firebase from '../Firebase'
 import router from '../router'
 
 export default {
-  name: 'Createevent',
+  name: 'CreateEvent',
   data () {
     return {
-      ref: firebase.firestore().collection('boards'),
-      board: {}
+      ref: firebase.firestore().collection('events'),
+      event: {}
     }
   },
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
 
-      this.ref.add(this.board).then(() => {
-        this.board.title = ''
-        this.board.category = ''
-        this.board.description = ''
-        this.board.author = ''
+      this.ref.add(this.event).then(() => {
+        this.event.title = ''
+        this.event.category = ''
+        this.event.description = ''
+        this.event.date = ''
+        this.event.participants = ''
+        this.event.author = ''
         router.push({
           name: 'Events'
         })
