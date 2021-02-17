@@ -35,7 +35,7 @@
                     :label-cols="4"
                     breakpoint="md"
                     label="Datum einfügen">
-              <b-form-input id="category" v-model.trim="event.date"></b-form-input>
+            <v-date-picker v-model="date"></v-date-picker>
           </b-form-group>
           <b-form-group id="participantsGroup"
                     horizontal
@@ -68,7 +68,14 @@ export default {
   data () {
     return {
       ref: firebase.firestore().collection('events'),
-      event: {}
+      date: new Date().toISOString().substr(0, 10),
+      event: {},
+    }
+  },
+  watch: {
+    date: function onDateChanged(val, oldVal) {
+      if (val == oldVal) return
+      this.event.date = this.formatDate(val)
     }
   },
   methods: {
@@ -89,6 +96,12 @@ export default {
       .catch((error) => {
         alert("Error adding document: ", error);
       });
+    },
+
+    formatDate (date) {
+      if (!date) return null
+      const [year, month, day] = date.split('-')
+      return `${day}.${month}.${year}`
     }
   }
 }
